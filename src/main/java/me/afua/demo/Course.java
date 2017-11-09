@@ -14,7 +14,7 @@ public class Course {
     private long id;
 
     @NotNull
-    @Size(min=4)
+    @Size(min=4,message="Enter at least {min} characters")
     public String title;
 
     public long getId() {

@@ -11,9 +11,9 @@
                 <div class="container">
                     <h1 class="text-center">Add Course</h1>
                 <form th:action="@{/process}" th:object="${course}" method="post">
-                        <input type="hidden" th:field="*id{}">
+                        <input type="hidden" th:field="*{id}"/>
                     <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
-                        <label>Title: </label><input type="text" th:field="*{title}">
+                        <label>Title: </label><input type="text" th:field="*{title}"/>
                 </form>
 
                 <!-- Latest compiled and minified JavaScript -->

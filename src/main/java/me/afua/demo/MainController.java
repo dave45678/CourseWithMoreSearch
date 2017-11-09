@@ -33,6 +33,7 @@ public class MainController {
         if (result.hasErrors()) {
             return "courseform";
         }
+        courseRepository.save(course);
         return "redirect:/";
     }
 
@@ -45,7 +46,7 @@ public class MainController {
     @RequestMapping("/update/{id}")
     public String updateCourse(@PathVariable("id") long id, Model model) {
         model.addAttribute("course", courseRepository.findOne(id));
-        return "course";
+        return "courseform";
     }
 
     @RequestMapping("/delete/{id}")

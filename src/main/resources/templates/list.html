@@ -23,6 +23,8 @@
             </thead>
             <tbody>
 
+            <div th:if="${search}!=null" th:inline="text">You searched for [[${search}]]</div>
+
                 <tr th:each="course :${courses}">
                     <td th:text ="${course.title}">Some test text here</td>
                     <td>

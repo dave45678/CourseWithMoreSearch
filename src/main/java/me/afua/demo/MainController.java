@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
@@ -55,4 +56,20 @@ public class MainController {
         return "redirect:/";
     }
 
+
+    @GetMapping("/search")
+    public String getSearch()
+    {
+        return "coursesearchform";
+    }
+
+    @PostMapping("/search")
+    public String showSearchResults(HttpServletRequest request, Model model)
+    {
+        //Get the search string from the result form
+        String searchString = request.getParameter("search");
+        model.addAttribute("search",searchString);
+        model.addAttribute("courses",courseRepository.findAllByTitleContainingIgnoreCase(searchString));
+        return "list";
+    }
 }

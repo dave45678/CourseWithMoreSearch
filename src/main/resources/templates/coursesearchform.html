@@ -14,6 +14,14 @@
                         <form th:action="@{/search}" method="post">
                                 <div>Enter a complete or partial <span class="text-success">course</span> to search for </div>
                                 <label>Course name: </label><input type="text" name="search"/>
+                            <input type="submit" text="Submit"/>
+                        </form>
+                        <p/>
+                        <form th:action="@{/searchbetween}" method="post">
+                            <div>Enter the number of <span class="text-success">credits</span> to search for </div>
+                            <label>Min: </label><input type="text" name="min"/>
+                            <label>Max: </label><input type="text" name="max"/>
+                            <input type="submit" text="Submit"/>
                         </form>
                     </div>
 

@@ -15,7 +15,8 @@ public class Course {
 
     @NotNull
     @Size(min=4,message="Enter at least {min} characters")
-    public String title;
+    private String title;
+    private int credits;
 
     public long getId() {
         return id;
@@ -32,4 +33,9 @@ public class Course {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public int getCredits(){return credits;}
+
+    public void setCredits(int credits) {this.credits = credits;}
+
 }

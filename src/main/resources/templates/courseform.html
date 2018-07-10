@@ -15,6 +15,9 @@
                                 <input type="hidden" th:field="*{id}"/>
                             <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span><br/>
                                 <label>Title: </label><input type="text" th:field="*{title}"/>
+                            <span th:if="${#fields.hasErrors('credits')}" th:errors="*{credits}"></span><br/>
+                            <label>Credits: </label><input type="text" th:field="*{credits}"/><br/>
+                            <input type="submit" text="Submit"/>
                         </form>
                     </div>
 

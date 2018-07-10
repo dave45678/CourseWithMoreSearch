@@ -72,4 +72,16 @@ public class MainController {
         model.addAttribute("courses",courseRepository.findAllByTitleContainingIgnoreCase(searchString));
         return "list";
     }
+
+    @PostMapping("/searchbetween")
+    public String showSearchBetweenResults(HttpServletRequest request, Model model){
+        int min = Integer.parseInt(request.getParameter("min"));
+        int max = Integer.parseInt(request.getParameter("max"));
+        String searchString = "Credits between " + min + " and " + max;
+        model.addAttribute("search",searchString);
+        model.addAttribute("min",min);
+        model.addAttribute("max",max);
+        model.addAttribute("courses",courseRepository.findAllByCreditsBetween(min,max));
+        return "list";
+    }
 }

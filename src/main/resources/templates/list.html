@@ -12,12 +12,14 @@
     <h1 class="text-center">Course List</h1>
     <div class="col-md-8 col-md-offset-4">
         <a href="/add" class="pull-right">Add a Course</a><br/>
+        <a href="/search" class="pull-right">Search for a Course</a><br/>
+        <a href="/">Show All Courses</a><br/>
         <table class="table">
 
             <thead>
                 <tr>
                     <th>Title</th>
-
+                    <th>Credits</th>
                 </tr>
 
             </thead>
@@ -26,7 +28,8 @@
             <div th:if="${search}!=null" th:inline="text">You searched for [[${search}]]</div>
 
                 <tr th:each="course :${courses}">
-                    <td th:text ="${course.title}">Some test text here</td>
+                    <td th:text ="${course.title}"></td>
+                    <td th:text ="${course.credits}"></td>
                     <td>
                         <a th:href ="@{/update/{id}(id=${course.id})}">Update</a>-
                         <a th:href ="@{/detail/{id}(id=${course.id})}">Details</a>-
